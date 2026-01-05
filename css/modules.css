@@ -613,11 +613,11 @@
 
 @media (max-width: 480px) {
   .animated.swingInX {
-    -webkit-animation-name: none;
-    animation-name: none;
-    -webkit-transform-origin: unset;
-    -ms-transform-origin: unset;
-    transform-origin: unset;
+    -webkit-animation-name: swingInX;
+    animation-name: swingInX;
+    -webkit-transform-origin: top;
+    -ms-transform-origin: top;
+    transform-origin: top;
   }
 }
 
@@ -657,11 +657,11 @@
 
 @media (max-width: 480px) {
   .animated.swingOutX {
-    -webkit-animation-name: none;
-    animation-name: none;
-    -webkit-transform-origin: unset;
-    -ms-transform-origin: unset;
-    transform-origin: unset;
+    -webkit-animation-name: swingOutX;
+    animation-name: swingOutX;
+    -webkit-transform-origin: top;
+    -ms-transform-origin: top;
+    transform-origin: top;
   }
 }
 
@@ -6514,6 +6514,40 @@ Main Components
 .socials-panel .socials-panel-item .socials-panel-title {
   display: inline-block;
   color: #fff;
+}
+
+/* Hacer que todo el botón sea clickeable */
+.socials-panel .socials-panel-item {
+  position: relative;
+}
+
+.socials-panel .socials-panel-item .full-button-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #fff !important;
+  z-index: 1;
+}
+
+.socials-panel .socials-panel-item .full-button-link:hover {
+  text-decoration: none;
+  color: #fff !important;
+}
+
+.socials-panel .socials-panel-item .full-button-link:visited {
+  color: #fff !important;
+}
+
+.socials-panel .socials-panel-item .full-button-link:active {
+  color: #fff !important;
 }
 
 /*------------- #SHOP-USER-FORM --------------*/

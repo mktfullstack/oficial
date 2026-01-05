@@ -97,8 +97,11 @@ var CRUMINA = {};
 		// grab an element
 		$header.headroom(
 			{
-				"offset": 20,
-				"tolerance": 5,
+				"offset": window.innerWidth <= 768 ? 10 : 20,
+				"tolerance": {
+					up: window.innerWidth <= 768 ? 3 : 5,
+					down: window.innerWidth <= 768 ? 3 : 5
+				},
 				"classes": {
 					"initial": "animated",
 					"pinned": "swingInX",
