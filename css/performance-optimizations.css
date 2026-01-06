@@ -1,0 +1,49 @@
+/* Optimizaciones de rendimiento para animaciones */
+/* Evita reflow usando transform en lugar de width/margin */
+
+.heading .heading-line .short-line {
+  transform-origin: left center;
+  will-change: transform;
+}
+
+.heading .heading-line .long-line {
+  transform-origin: left center;
+  will-change: transform;
+}
+
+.heading:hover .heading-line .short-line {
+  animation: move-short-optimized 1.5s infinite linear;
+}
+
+.heading:hover .heading-line .long-line {
+  animation: move-optimized 1.5s infinite linear;
+}
+
+@keyframes move-short-optimized {
+  0% {
+    transform: scaleX(0.214); /* 30px / 140px */
+  }
+  100% {
+    transform: scaleX(1); /* 140px */
+  }
+}
+
+@keyframes move-optimized {
+  0% {
+    transform: scaleX(1); /* 130px */
+  }
+  100% {
+    transform: scaleX(0); /* 0px */
+  }
+}
+
+/* Deshabilitar animaciones no optimizadas si existen */
+.heading:hover .heading-line .short-line {
+  width: 30px !important;
+  margin-right: 10px !important;
+}
+
+.heading:hover .heading-line .long-line {
+  width: 100px !important;
+}
+
