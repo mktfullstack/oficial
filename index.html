@@ -40,7 +40,7 @@
 	<link rel="preload" href="img/logo.png" as="image" fetchpriority="high">
 	<link rel="preload" href="img/slider2.png" as="image" fetchpriority="high">
 
-	<!-- CSS crítico cargado normalmente (bloqueante para renderizado inicial) -->
+	<!-- CSS crítico mínimo (solo lo esencial para renderizado inicial) -->
 	<link rel="stylesheet" type="text/css" href="css/crumina-fonts.css">
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/grid.css">
@@ -48,11 +48,6 @@
 	<link rel="stylesheet" type="text/css" href="css/fonts.css">
 	<link rel="stylesheet" type="text/css" href="css/primary-menu.css">
 	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
-	
-	<!-- CSS semi-crítico -->
-	<link rel="stylesheet" type="text/css" href="css/blocks.css">
-	<link rel="stylesheet" type="text/css" href="css/layouts.css">
-	<link rel="stylesheet" type="text/css" href="css/modules.css">
 
 	<!-- CSS no crítico - se carga después del renderizado inicial -->
 	<!-- Estos se cargarán de forma asíncrona mediante JavaScript -->
@@ -60,17 +55,27 @@
 
 	<!--<link rel="stylesheet" type="text/css" href="css/rtl.css">-->
 
-	<!--External fonts - Optimizado con font-display-->
-	<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet" type="text/css">
-
-	<!-- Optimizaciones de rendimiento para animaciones -->
-	<link rel="stylesheet" type="text/css" href="css/performance-optimizations.css">
+	<!--External fonts - Carga asíncrona para no bloquear renderizado-->
+	<script>
+		(function() {
+			var link = document.createElement('link');
+			link.rel = 'stylesheet';
+			link.href = 'https://fonts.googleapis.com/css2?family=Varela+Round&display=swap';
+			link.media = 'print';
+			link.onload = function() { this.media = 'all'; };
+			document.head.appendChild(link);
+		})();
+	</script>
 
 	<!-- Script para carga asíncrona de CSS no crítico -->
 	<script>
 		// Cargar CSS no crítico después del renderizado inicial
 		(function() {
 			var cssFiles = [
+				'css/blocks.css',
+				'css/layouts.css',
+				'css/modules.css',
+				'css/performance-optimizations.css',
 				'css/widgets-styles.css',
 				'css/jquery.mCustomScrollbar.css',
 				'css/magnific-popup.css',
@@ -488,7 +493,7 @@
 										<p class="heading-text">Si lo que buscas es aumentar tus ventas, conseguir más
 											clientes o lograr que las personas reconozcan tu marca, <strong>solicita hoy
 												mismo tu asesoría </strong>y descubre cómo las nuevas tecnologías pueden
-											ayudarte a lograr las metas de tu empresa.</p>
+											ayudarte a lograr las metas de tu empresa..</p>
 									</div>
 
 
