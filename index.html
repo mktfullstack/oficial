@@ -36,8 +36,9 @@
 	<link rel="preload" href="css/normalize.css" as="style">
 	<link rel="preload" href="css/grid.css" as="style">
 	<link rel="preload" href="css/base.css" as="style">
-	<link rel="preload" href="img/logo.png" as="image">
-	<link rel="preload" href="img/slider2.png" as="image">
+	<link rel="preload" href="css/swiper.min.css" as="style">
+	<link rel="preload" href="img/logo.png" as="image" fetchpriority="high">
+	<link rel="preload" href="img/slider2.png" as="image" fetchpriority="high">
 
 	<!-- CSS crítico cargado normalmente (bloqueante para renderizado inicial) -->
 	<link rel="stylesheet" type="text/css" href="css/crumina-fonts.css">
@@ -46,6 +47,7 @@
 	<link rel="stylesheet" type="text/css" href="css/base.css">
 	<link rel="stylesheet" type="text/css" href="css/fonts.css">
 	<link rel="stylesheet" type="text/css" href="css/primary-menu.css">
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
 	
 	<!-- CSS semi-crítico -->
 	<link rel="stylesheet" type="text/css" href="css/blocks.css">
@@ -70,7 +72,6 @@
 		(function() {
 			var cssFiles = [
 				'css/widgets-styles.css',
-				'css/swiper.min.css',
 				'css/jquery.mCustomScrollbar.css',
 				'css/magnific-popup.css',
 				'css/text-effect.css',
@@ -338,7 +339,7 @@
 								<div class="col-lg-7 table-cell">
 									<div class="slider-thumb" data-swiper-parallax="-300"
 										data-swiper-parallax-duration="500">
-										<img src="img/slider2.png" alt="slider" width="800" height="600" loading="eager">
+										<img src="img/slider2.png" alt="slider" width="800" height="600" loading="eager" fetchpriority="high">
 									</div>
 								</div>
 
@@ -487,7 +488,7 @@
 										<p class="heading-text">Si lo que buscas es aumentar tus ventas, conseguir más
 											clientes o lograr que las personas reconozcan tu marca, <strong>solicita hoy
 												mismo tu asesoría </strong>y descubre cómo las nuevas tecnologías pueden
-											ayudarte a lograr las metas de tu empresa..</p>
+											ayudarte a lograr las metas de tu empresa.</p>
 									</div>
 
 
