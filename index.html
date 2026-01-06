@@ -39,25 +39,21 @@
 	<link rel="preload" href="img/logo.png" as="image">
 	<link rel="preload" href="img/slider2.png" as="image">
 
-	<!-- CSS crítico cargado normalmente -->
+	<!-- CSS crítico cargado normalmente (bloqueante para renderizado inicial) -->
 	<link rel="stylesheet" type="text/css" href="css/crumina-fonts.css">
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/grid.css">
 	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/fonts.css">
+	<link rel="stylesheet" type="text/css" href="css/primary-menu.css">
+	
+	<!-- CSS semi-crítico -->
 	<link rel="stylesheet" type="text/css" href="css/blocks.css">
 	<link rel="stylesheet" type="text/css" href="css/layouts.css">
 	<link rel="stylesheet" type="text/css" href="css/modules.css">
-	<link rel="stylesheet" type="text/css" href="css/widgets-styles.css">
-	<link rel="stylesheet" type="text/css" href="css/ion.rangeSlider.css">
-	<link rel="stylesheet" type="text/css" href="css/fonts.css">
 
-	<!--Plugins styles-->
-
-	<link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.css">
-	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
-	<link rel="stylesheet" type="text/css" href="css/primary-menu.css">
-	<link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
-	<link rel="stylesheet" type="text/css" href="css/text-effect.css">
+	<!-- CSS no crítico - se carga después del renderizado inicial -->
+	<!-- Estos se cargarán de forma asíncrona mediante JavaScript -->
 	<!--Styles for RTL-->
 
 	<!--<link rel="stylesheet" type="text/css" href="css/rtl.css">-->
@@ -67,6 +63,62 @@
 
 	<!-- Optimizaciones de rendimiento para animaciones -->
 	<link rel="stylesheet" type="text/css" href="css/performance-optimizations.css">
+
+	<!-- Script para carga asíncrona de CSS no crítico -->
+	<script>
+		// Cargar CSS no crítico después del renderizado inicial
+		(function() {
+			var cssFiles = [
+				'css/widgets-styles.css',
+				'css/swiper.min.css',
+				'css/jquery.mCustomScrollbar.css',
+				'css/magnific-popup.css',
+				'css/text-effect.css',
+				'css/ion.rangeSlider.css'
+			];
+			
+			function loadNonCriticalCSS() {
+				cssFiles.forEach(function(href) {
+					var link = document.createElement('link');
+					link.rel = 'stylesheet';
+					link.href = href;
+					link.media = 'print';
+					link.onload = function() { this.media = 'all'; };
+					document.head.appendChild(link);
+				});
+			}
+			
+			// Cargar después de que el contenido crítico se haya renderizado
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', loadNonCriticalCSS);
+			} else {
+				// Usar requestIdleCallback si está disponible, sino setTimeout
+				if ('requestIdleCallback' in window) {
+					requestIdleCallback(loadNonCriticalCSS, { timeout: 2000 });
+				} else {
+					setTimeout(loadNonCriticalCSS, 1);
+				}
+			}
+		})();
+	</script>
+	
+	<style>
+		/* Optimización CLS: Dimensiones explícitas para el slider */
+		.main-slider {
+			min-height: 600px;
+			width: 100%;
+			position: relative;
+		}
+		.swiper-container.main-slider {
+			aspect-ratio: 16 / 9;
+			min-height: 500px;
+		}
+		@media (max-width: 768px) {
+			.swiper-container.main-slider {
+				min-height: 400px;
+			}
+		}
+	</style>
 
 </head>
 
@@ -258,7 +310,7 @@
 		<!-- Main Slider -->
 
 		<div class="container-full-width">
-			<div class="swiper-container main-slider" data-effect="fade" data-autoplay="4000">
+			<div class="swiper-container main-slider" data-effect="fade" data-autoplay="4000" style="min-height: 600px; width: 100%;">
 
 				<!-- Additional required wrapper -->
 				<div class="swiper-wrapper">
