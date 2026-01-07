@@ -6,7 +6,6 @@
     font-weight: 400;
     src: url('../fonts/varelaround-regular-webfont.woff2') format('woff2'),
     url('../fonts/varelaround-regular-webfont.woff') format('woff');
-    font-display: swap;
 }
 @font-face {
   font-family: 'seosight';
@@ -16,7 +15,6 @@
       url('../fonts/seosight.svg#seosight') format('svg');
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
 }
 
 [class^="seoicon-"], [class*=" seoicon-"] {

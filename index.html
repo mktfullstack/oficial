@@ -27,99 +27,32 @@
 
 	<link rel="icon" href="img/favicon.ico">
 
-	<!-- Preconnect para recursos externos -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="preconnect" href="https://widget.manychat.com">
 
-	<!-- Preload para recursos críticos -->
-	<link rel="preload" href="css/normalize.css" as="style">
-	<link rel="preload" href="css/grid.css" as="style">
-	<link rel="preload" href="css/base.css" as="style">
-	<link rel="preload" href="css/swiper.min.css" as="style">
-	<link rel="preload" href="img/logo.png" as="image" fetchpriority="high">
-	<link rel="preload" href="img/slider2.png" as="image" fetchpriority="high">
-
-	<!-- CSS crítico cargado normalmente (bloqueante para renderizado inicial) -->
 	<link rel="stylesheet" type="text/css" href="css/crumina-fonts.css">
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="css/grid.css">
 	<link rel="stylesheet" type="text/css" href="css/base.css">
-	<link rel="stylesheet" type="text/css" href="css/fonts.css">
-	<link rel="stylesheet" type="text/css" href="css/primary-menu.css">
-	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
-	
-	<!-- CSS semi-crítico -->
 	<link rel="stylesheet" type="text/css" href="css/blocks.css">
 	<link rel="stylesheet" type="text/css" href="css/layouts.css">
 	<link rel="stylesheet" type="text/css" href="css/modules.css">
+	<link rel="stylesheet" type="text/css" href="css/widgets-styles.css">
+	<link rel="stylesheet" type="text/css" href="css/ion.rangeSlider.css">
+	<link rel="stylesheet" type="text/css" href="css/fonts.css">
 
-	<!-- CSS no crítico - se carga después del renderizado inicial -->
-	<!-- Estos se cargarán de forma asíncrona mediante JavaScript -->
+
+	<!--Plugins styles-->
+
+	<link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="css/primary-menu.css">
+	<link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
+	<link rel="stylesheet" type="text/css" href="css/text-effect.css">
 	<!--Styles for RTL-->
 
 	<!--<link rel="stylesheet" type="text/css" href="css/rtl.css">-->
 
-	<!--External fonts - Optimizado con font-display-->
-	<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet" type="text/css">
-
-	<!-- Optimizaciones de rendimiento para animaciones -->
-	<link rel="stylesheet" type="text/css" href="css/performance-optimizations.css">
-
-	<!-- Script para carga asíncrona de CSS no crítico -->
-	<script>
-		// Cargar CSS no crítico después del renderizado inicial
-		(function() {
-			var cssFiles = [
-				'css/widgets-styles.css',
-				'css/jquery.mCustomScrollbar.css',
-				'css/magnific-popup.css',
-				'css/text-effect.css',
-				'css/ion.rangeSlider.css'
-			];
-			
-			function loadNonCriticalCSS() {
-				cssFiles.forEach(function(href) {
-					var link = document.createElement('link');
-					link.rel = 'stylesheet';
-					link.href = href;
-					link.media = 'print';
-					link.onload = function() { this.media = 'all'; };
-					document.head.appendChild(link);
-				});
-			}
-			
-			// Cargar después de que el contenido crítico se haya renderizado
-			if (document.readyState === 'loading') {
-				document.addEventListener('DOMContentLoaded', loadNonCriticalCSS);
-			} else {
-				// Usar requestIdleCallback si está disponible, sino setTimeout
-				if ('requestIdleCallback' in window) {
-					requestIdleCallback(loadNonCriticalCSS, { timeout: 2000 });
-				} else {
-					setTimeout(loadNonCriticalCSS, 1);
-				}
-			}
-		})();
-	</script>
-	
-	<style>
-		/* Optimización CLS: Dimensiones explícitas para el slider */
-		.main-slider {
-			min-height: 600px;
-			width: 100%;
-			position: relative;
-		}
-		.swiper-container.main-slider {
-			aspect-ratio: 16 / 9;
-			min-height: 500px;
-		}
-		@media (max-width: 768px) {
-			.swiper-container.main-slider {
-				min-height: 400px;
-			}
-		}
-	</style>
+	<!--External fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -149,7 +82,7 @@
 			</div>
 
 			<div class="login-block">
-				<img loading="lazy" src="img/signin_dark.png" class="sign-in" alt="sign in">
+				<img src="img/signin_dark.png" class="sign-in">
 				<a class="js-window-popup" href="#">Aviso de Privacidad</a>
 			</div>
 
@@ -157,19 +90,19 @@
 				<span>Síguenos:</span>
 				<div class="socials">
 					<a href="https://www.facebook.com/fullstackmarketingoficial" class="social__item">
-						<img loading="lazy" src="svg/circle-facebook.svg" alt="facebook" width="24" height="24">
+						<img src="svg/circle-facebook.svg" alt="facebook">
 					</a>
 
 					<a href="https://www.behance.net/fullstackmarketing" class="social__item">
-						<img loading="lazy" src="svg/behance.svg" alt="behance" width="24" height="24">
+						<img src="svg/behance.svg" alt="twitter">
 					</a>
 
 					<a href="https://www.instagram.com/fullstack.marketing/" class="social__item">
-						<img loading="lazy" src="svg/instagram.svg" alt="instagram" width="24" height="24">
+						<img src="svg/instagram.svg" alt="google">
 					</a>
 
 					<a href="https://www.youtube.com/channel/UCxVJa-XQTQhYsFtguA5Q5HQ/videos" class="social__item">
-						<img loading="lazy" src="svg/youtube.svg" alt="youtube" width="24" height="24">
+						<img src="svg/youtube.svg" alt="youtube">
 					</a>
 
 				</div>
@@ -194,7 +127,7 @@
 
 				<div class="logo">
 					<a href="index.html" class="full-block-link"></a>
-					<img src="img/logo.png" alt="Fullstack Marketing" width="200" height="60">
+					<img loading="lazy" src="img/logo.png" alt="Fullstack Marketing">
 
 				</div>
 
@@ -311,7 +244,7 @@
 		<!-- Main Slider -->
 
 		<div class="container-full-width">
-			<div class="swiper-container main-slider" data-effect="fade" data-autoplay="4000" style="min-height: 600px; width: 100%;">
+			<div class="swiper-container main-slider" data-effect="fade" data-autoplay="4000">
 
 				<!-- Additional required wrapper -->
 				<div class="swiper-wrapper">
@@ -339,7 +272,7 @@
 								<div class="col-lg-7 table-cell">
 									<div class="slider-thumb" data-swiper-parallax="-300"
 										data-swiper-parallax-duration="500">
-										<img src="img/slider2.png" alt="slider" width="800" height="600" loading="eager" fetchpriority="high">
+										<img src="img/slider2.png" alt="slider">
 									</div>
 								</div>
 
@@ -372,7 +305,7 @@
 								<div class="col-lg-6 table-cell">
 									<div class="slider-thumb" data-swiper-parallax="-300"
 										data-swiper-parallax-duration="500">
-										<img src="img/slider3.png" alt="slider" width="800" height="600" loading="lazy">
+										<img src="img/slider3.png" alt="slider">
 									</div>
 								</div>
 
@@ -403,7 +336,7 @@
 								<div class="col-lg-12">
 									<div class="slider-thumb" data-swiper-parallax="-400"
 										data-swiper-parallax-duration="600">
-										<img src="img/slider4.png" alt="slider" width="1200" height="600" loading="lazy">
+										<img src="img/slider4.png" alt="slider">
 									</div>
 
 								</div>
@@ -437,7 +370,7 @@
 								<div class="col-lg-6 table-cell">
 									<div class="slider-thumb" data-swiper-parallax="-300"
 										data-swiper-parallax-duration="500">
-										<img src="img/slider5.png" alt="slider" width="800" height="600" loading="lazy">
+										<img src="img/slider5.png" alt="slider">
 									</div>
 								</div>
 
@@ -488,7 +421,7 @@
 										<p class="heading-text">Si lo que buscas es aumentar tus ventas, conseguir más
 											clientes o lograr que las personas reconozcan tu marca, <strong>solicita hoy
 												mismo tu asesoría </strong>y descubre cómo las nuevas tecnologías pueden
-											ayudarte a lograr las metas de tu empresa..</p>
+											ayudarte a lograr las metas de tu empresa.</p>
 									</div>
 
 
@@ -499,9 +432,9 @@
 					</div>
 
 					<div class="images">
-						<img loading="lazy" src="img/seoscore1.png" alt="Servicios digitales" width="300" height="200">
-						<img loading="lazy" src="img/seoscore2.png" alt="Marketing digital" width="300" height="200">
-						<img loading="lazy" src="img/seoscore3.png" alt="Desarrollo web" width="300" height="200">
+						<img loading="lazy" src="img/seoscore1.png" alt="image">
+						<img loading="lazy" src="img/seoscore2.png" alt="image">
+						<img loading="lazy" src="img/seoscore3.png" alt="image">
 					</div>
 
 				</div>
@@ -569,7 +502,7 @@
 
 							<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
 								<div class="offers-thumb">
-									<img loading="lazy" src="img/offers1.png" alt="offers" width="600" height="400">
+									<img loading="lazy" src="img/offers1.png" alt="offers">
 								</div>
 							</div>
 						</div>
@@ -613,7 +546,7 @@
 								<div class="servises-item bg-greenligth-color">
 
 									<div class="servises-item__thumb align-center">
-										<img loading="lazy" src="img/dweb1.png" alt="Servicio de páginas web" width="200" height="200">
+										<img loading="lazy" src="img/dweb1.png" alt="service">
 									</div>
 									<div class="servises-item__content">
 										<h4 class="servises-title c-white">Páginas WEB </h4>
@@ -636,7 +569,7 @@
 							<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 								<div class="servises-item bg-violet-color">
 									<div class="servises-item__thumb align-center">
-										<img loading="lazy" src="img/2.png" alt="Servicio de branding" width="200" height="200">
+										<img loading="lazy" src="img/2.png" alt="service">
 									</div>
 									<div class="servises-item__content">
 										<h4 class="servises-title c-white">Branding</h4>
@@ -660,7 +593,7 @@
 							<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 								<div class="servises-item bg-primary-color">
 									<div class="servises-item__thumb align-center">
-										<img loading="lazy" src="img/3.png" alt="Servicio de marketing digital" width="200" height="200">
+										<img loading="lazy" src="img/3.png" alt="service">
 									</div>
 									<div class="servises-item__content">
 										<h4 class="servises-title c-white">Marketing</h4>
@@ -747,7 +680,7 @@
 
 									<div class="post__author author vcard">
 										<div class="post-avatar">
-											<img loading="lazy" src="img/post-author.png" alt="Autor del blog" width="50" height="50">
+											<img loading="lazy" src="img/post-author.png" alt="author">
 										</div>
 										<span class="post__author-name fn"> Posted by <a href="#"
 												class="post__author-link">CEO</a></span>
@@ -775,7 +708,7 @@
 
 									<div class="post__author author vcard">
 										<div class="post-avatar">
-											<img loading="lazy" src="img/post-author.png" alt="Autor del blog" width="50" height="50">
+											<img loading="lazy" src="img/post-author.png" alt="author">
 										</div>
 										<span class="post__author-name fn"> Posted by <a href="#"
 												class="post__author-link">CEO</a></span>
@@ -806,7 +739,7 @@
 
 									<div class="post__author author vcard">
 										<div class="post-avatar">
-											<img loading="lazy" src="img/post-author.png" alt="Autor del blog" width="50" height="50">
+											<img loading="lazy" src="img/post-author.png" alt="author">
 										</div>
 										<span class="post__author-name fn"> Posted by <a href="#"
 												class="post__author-link">CEO</a></span>
@@ -836,7 +769,7 @@
 
 									<div class="post__author author vcard">
 										<div class="post-avatar">
-											<img loading="lazy" src="img/post-author.png" alt="Autor del blog" width="50" height="50">
+											<img loading="lazy" src="img/post-author.png" alt="author">
 										</div>
 										<span class="post__author-name fn"> Posted by <a href="#"
 												class="post__author-link">CEO</a></span>
@@ -866,7 +799,7 @@
 
 									<div class="post__author author vcard">
 										<div class="post-avatar">
-											<img loading="lazy" src="img/post-author.png" alt="Autor del blog" width="50" height="50">
+											<img loading="lazy" src="img/post-author.png" alt="author">
 										</div>
 										<span class="post__author-name fn"> Posted by <a href="#"
 												class="post__author-link">CEO</a></span>
@@ -896,7 +829,7 @@
 
 									<div class="post__author author vcard">
 										<div class="post-avatar">
-											<img loading="lazy" src="img/post-author.png" alt="Autor del blog" width="50" height="50">
+											<img loading="lazy" src="img/post-author.png" alt="author">
 										</div>
 										<span class="post__author-name fn"> Posted by <a href="#"
 												class="post__author-link">CEO</a></span>
@@ -962,37 +895,37 @@
 
 		<!-- Subscribe Form -->
 
-		<div class="container-fluid bg-greendark-color">
+<div class="container-fluid bg-greendark-color">
+	<div class="row">
+		<div class="container">
+
 			<div class="row">
-				<div class="container">
 
-					<div class="row">
+				<div class="subscribe scrollme">
 
-						<div class="subscribe scrollme">
+					<div class="col-lg-6 col-lg-offset-5 col-md-6 col-md-offset-5 col-sm-12 col-xs-12">
+						<h4 class="subscribe-title">¡Recibe asesoría gratuita sobre tu proyecto!</h4>
+						<a href="contacto.html" class="btn btn-medium btn--dark-gray btn-hover-shadow">
+							
+							<span class="text">CONTÁCTANOS</span>
+							<span class="semicircle"></span>
+						</a>
+					
 
-							<div class="col-lg-6 col-lg-offset-5 col-md-6 col-md-offset-5 col-sm-12 col-xs-12">
-								<h4 class="subscribe-title">¡Recibe asesoría gratuita sobre tu proyecto!</h4>
-								<a href="contacto.html" class="btn btn-medium btn--dark-gray btn-hover-shadow">
+					</div>
 
-									<span class="text">CONTÁCTANOS</span>
-									<span class="semicircle"></span>
-								</a>
-
-
-							</div>
-
-							<div class="images-block">
-								<img loading="lazy" src="img/subscr-gear.png" alt="gear" class="gear" width="200" height="200">
-								<img loading="lazy" src="img/subscr1.png" alt="mail" class="mail" width="150" height="150">
-								<img loading="lazy" src="img/subscr-mailopen.png" alt="mail" class="mail-2" width="150" height="150">
-							</div>
-						</div>
+					<div class="images-block">
+						<img src="img/subscr-gear.png" alt="gear" class="gear">
+						<img src="img/subscr1.png" alt="mail" class="mail">
+						<img src="img/subscr-mailopen.png" alt="mail" class="mail-2">
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
 
-		<!-- End Subscribe Form -->
+<!-- End Subscribe Form -->
 	</div>
 
 
@@ -1007,7 +940,7 @@
 					<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
 						<div class="heading ">
 
-							<img loading="lazy" src="img/eye.png" class="eye" alt="eye" width="50" height="50">
+							<img src="img/eye.png" class="eye" alt="eye">
 							<div class="heading-line">
 								<span class="short-line"></span>
 								<span class="long-line"></span>
@@ -1021,24 +954,26 @@
 
 						<div class="socials">
 							<a href="https://www.facebook.com/fullstackmarketingoficial" class="social__item">
-								<img loading="lazy" src="svg/circle-facebook.svg" alt="facebook" width="24" height="24">
+								<img src="svg/circle-facebook.svg" alt="facebook">
 							</a>
 							<a href="https://www.instagram.com/fullstack.marketing/" class="social__item">
-								<img loading="lazy" src="svg/instagram.svg" alt="instagram" width="24" height="24">
+								<img src="svg/instagram.svg" alt="twitter">
 							</a>
 							<a href="https://www.behance.net/fullstackmarketing" class="social__item">
-								<img loading="lazy" src="svg/behance.svg" alt="behance" width="24" height="24">
+								<img src="svg/behance.svg" alt="google">
 							</a>
 
 							<a href="https://www.youtube.com/channel/UCxVJa-XQTQhYsFtguA5Q5HQ/videos"
 								class="social__item">
-								<img loading="lazy" src="svg/youtube.svg" alt="youtube" width="24" height="24">
+								<img src="svg/youtube.svg" alt="youtube">
 							</a>
 
 							<a href="https://wa.me/5215575701310?text=Hola, me interesa saber más sobre los servicios que ofrecen ¿Podemos hablar sobre mi idea?"
 								class="social__item">
-								<img loading="lazy" src="svg/whatsapp.svg" alt="whatsapp" width="24" height="24">
+								<img src="svg/whatsapp.svg" alt="whatsapp">
 							</a>
+
+
 						</div>
 					</div>
 
@@ -1637,44 +1572,39 @@
 
 	<!-- JS Script -->
 
-	<!-- jQuery debe cargarse primero, sin defer -->
 	<script src="js/jquery-3.4.1.js"></script>
 
-	<!-- Scripts críticos para funcionalidad inicial -->
-	<script src="js/js-plugins/crum-mega-menu.js" defer></script>
-	<script src="js/js-plugins/swiper.jquery.min.js" defer></script>
-	<script src="js/js-plugins/waypoints.js" defer></script>
-	
-	<!-- Scripts no críticos con defer para no bloquear renderizado -->
-	<script src="js/js-plugins/jquery.drawsvg.js" defer></script>
-	<script src="js/js-plugins/jquery-countTo.js" defer></script>
-	<script src="js/js-plugins/jquery.mousewheel.js" defer></script>
-	<script src="js/js-plugins/jquery.mCustomScrollbar.js" defer></script>
-	<script src="js/js-plugins/imagesLoaded.js" defer></script>
-	<script src="js/js-plugins/jquery.magnific-popup.js" defer></script>
-	<script src="js/js-plugins/jquery.matchHeight.js" defer></script>
-	<script src="js/js-plugins/segment.js" defer></script>
-	<script src="js/js-plugins/bootstrap.js" defer></script>
-	<script src="js/js-plugins/jquery-circle-progress.js" defer></script>
-	<script src="js/js-plugins/Headroom.js" defer></script>
-	<script src="js/js-plugins/smooth-scroll.js" defer></script>
-	<script src="js/js-plugins/jquery.nice-select.js" defer></script>
-	<script src="js/js-plugins/fastClick.js" defer></script>
-	<script src="js/js-plugins/form-actions.js" defer></script>
-	<script src="js/js-plugins/velocity.js" defer></script>
-	<script src="js/js-plugins/time-line.js" defer></script>
-	<script src="js/js-plugins/ScrollMagic.min.js" defer></script>
-	<script src="js/js-plugins/animation.velocity.min.js" defer></script>
-	<script src="js/js-plugins/ajax-pagination.js" defer></script>
-	<script src="js/js-plugins/donut-chart.js" defer></script>
-	<script src="js/js-plugins/isotope.pkgd.min.js" defer></script>
-	<script src="js/js-plugins/photo-gallery.js" defer></script>
-	<script src="js/js-plugins/ion.rangeSlider.js" defer></script>
-	<script src="js/js-plugins/leaflet.js" defer></script>
-	<script src="js/js-plugins/MarkerClusterGroup.js" defer></script>
+	<script src="js/js-plugins/crum-mega-menu.js"></script>
+	<script src="js/js-plugins/swiper.jquery.min.js"></script>
+	<script src="js/js-plugins/waypoints.js"></script>
+	<script src="js/js-plugins/jquery.drawsvg.js"></script>
+	<script src="js/js-plugins/jquery-countTo.js"></script>
+	<script src="js/js-plugins/jquery.mousewheel.js"></script>
+	<script src="js/js-plugins/jquery.mCustomScrollbar.js"></script>
+	<script src="js/js-plugins/imagesLoaded.js"></script>
+	<script src="js/js-plugins/jquery.magnific-popup.js"></script>
+	<script src="js/js-plugins/jquery.matchHeight.js"></script>
+	<script src="js/js-plugins/segment.js"></script>
+	<script src="js/js-plugins/bootstrap.js"></script>
+	<script src="js/js-plugins/jquery-circle-progress.js"></script>
+	<script src="js/js-plugins/Headroom.js"></script>
+	<script src="js/js-plugins/smooth-scroll.js"></script>
+	<script src="js/js-plugins/jquery.nice-select.js"></script>
+	<script src="js/js-plugins/fastClick.js"></script>
+	<script src="js/js-plugins/form-actions.js"></script>
+	<script src="js/js-plugins/velocity.js"></script>
+	<script src="js/js-plugins/time-line.js"></script>
+	<script src="js/js-plugins/ScrollMagic.min.js"></script>
+	<script src="js/js-plugins/animation.velocity.min.js"></script>
+	<script src="js/js-plugins/ajax-pagination.js"></script>
+	<script src="js/js-plugins/donut-chart.js"></script>
+	<script src="js/js-plugins/isotope.pkgd.min.js"></script>
+	<script src="js/js-plugins/photo-gallery.js"></script>
+	<script src="js/js-plugins/ion.rangeSlider.js"></script>
+	<script src="js/js-plugins/leaflet.js"></script>
+	<script src="js/js-plugins/MarkerClusterGroup.js"></script>
 
-	<!-- Main.js debe cargarse al final, después de todos los plugins -->
-	<script src="js/main.js" defer></script>
+	<script src="js/main.js"></script>
 
 	<!-- ManyChat -->
 	<script src="//widget.manychat.com/110973363893104.js" async="async"></script>
