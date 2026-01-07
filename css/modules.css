@@ -2333,6 +2333,13 @@
   -ms-transform: translate(-50%, 0);
 }
 
+@media (max-width: 768px) {
+  .seo-score .images img:first-of-type,
+  .seo-score .images img:nth-child(2) {
+    display: none;
+  }
+}
+
 /*------------- #OFFERS --------------*/
 .our-video {
   overflow: hidden;
