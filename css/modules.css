@@ -2333,12 +2333,36 @@
   -ms-transform: translate(-50%, 0);
 }
 
+
 @media (max-width: 768px) {
+
+  /* Hide the top decoration and the scattered decorative items (3rd image) */
   .seo-score .images img:first-of-type,
-  .seo-score .images img:nth-child(2) {
+  .seo-score .images img:last-of-type {
     display: none;
   }
+
+  /* Ensure the main keyboard image (2nd image) is visible and positioned correctly */
+  .seo-score .images img:nth-child(2) {
+    display: block;
+    width: 80%;
+    /* Adjust width to fit mobile screen if needed */
+    max-width: 400px;
+    margin: 0 auto;
+    position: relative;
+    /* Change from absolute to relative to sit nicely in flow if needed, or keep absolute but adjust */
+    bottom: auto;
+    left: auto;
+    transform: none;
+    -webkit-transform: none;
+  }
+
+  /* Adjust container padding if the image is relative now to avoid huge gaps */
+  .seo-score {
+    padding-bottom: 0;
+  }
 }
+
 
 /*------------- #OFFERS --------------*/
 .our-video {
